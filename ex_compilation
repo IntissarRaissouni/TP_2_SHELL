@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Veuillez entrer le nom du fichier à compiler :"
+read file
+
+echo "Voulez-vous compiler le fichier $file ? (o/n)"
+read ans
+
+if [ "$ans" == "o" ]
+then
+	gcc $file -o prog
+	if [ $? -eq 0 ]
+	then
+		echo "Compilation réussie !"
+		echo "Voulez-vous exécuter le programme ? (o/n)"
+		read anse
+		if [ "$anse" == "o" ]
+		then
+			./prog
+		else
+			echo "Fin du programme !"
+		fi
+	else
+		echo "Erreur de compilation !"
+	fi
+else
+	echo "Fin du programme !"
+fi

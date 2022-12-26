@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Demande mois et année
+echo -n "Entrez le mois (1-12): "
+read month
+echo -n "Entrez l'année (1-2038): "
+read year
+
+# Vérifie que la date est valide
+if [ $year -lt 1 ] || [ $year -gt 2038 ]; then 
+    echo "L'année doit être entre 1 et 2038."
+    exit 1
+elif [ $month -lt 1 ] || [ $month -gt 12 ]; then
+    echo "Le mois doit être entre 1 et 12."
+    exit 1
+fi
+
+# Affiche le calendrier
+cal $month $year
+
